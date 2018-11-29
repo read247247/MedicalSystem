@@ -1,0 +1,24 @@
+{
+  "name": "medicalsystem",
+  "version": "1.0.0",
+  "description": "database for medical system project (Fall 2018)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/read247247/MedicalSystem.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/read247247/MedicalSystem/issues"
+  },
+  "homepage": "https://github.com/read247247/MedicalSystem#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mysql": "^2.16.0",
+    "nodemon": "^1.18.6"
+  }
+}
