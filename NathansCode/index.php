@@ -19,7 +19,7 @@
       </div>
       <div class="row" id="it3pb3">
         <div class="cell" id="idnvug">
-          <form class="form" action = "/php_result.php" method = "post">
+          <form class="form" action = "php_result.php" method = "post">
             <div class="form-group">
               <label class="label">
                 Username
@@ -30,7 +30,7 @@
               <label class="label">
                 Password
               </label>
-              <input type="password" placeholder="" required class="input" name = "PW"/>
+              <input type="password" placeholder="" required class="input" name = "password"/>
             </div>
             <div class="form-group">
             </div>
@@ -38,9 +38,6 @@
               <button type="submit" class="button" name = "submit">
                 Login
               </button>
-              <?php
-                include "/php_result.php";
-              ?>
             </div>
           </form>
         </div>
