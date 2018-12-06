@@ -1,6 +1,6 @@
 <?php
     require_once "dataBase_connect.php";
-
+    
     if(isset($_POST['username'])){
         $username = stripslashes($_POST['username']);
         $password = $_POST['password'];
@@ -19,6 +19,7 @@
             $pName = mysqli_fetch_assoc($result);
             header("location: patient_homepage.php");
         } else{   //searches medstaff table
+			
             $sql = "SELECT * FROM MEDICALSTAFF WHERE MedStaff_username = '".$username."' AND MedStaff_password = '".$password."'";
             $result = mysqli_query($link, $sql);
 	
@@ -27,10 +28,7 @@
             }
 		
             if(mysqli_num_rows($result) == 1){
-			
-                $pName = mysqli_fetch_assoc($result);
-                echo "Welcome ".$pName['MedStaff_Fname']." ".$pName['MedStaff_Lname']."!\n We do not have a medical staff home page yet";
-                exit();
+                header("location: medstaff_homepage.php");
             }
             else{
                 echo "login unsuccessful";
