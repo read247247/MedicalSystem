@@ -14,57 +14,109 @@
 			</div>
 			<nav class="menu"></nav>
 			<div class="clearfix"></div>
-			<div id="i7klvm" class="lead-title">Book an Appointment</div>
-			<div id="irxhtb">Enter appointment info</div>
+			<div class="lead-title" id="i7klvm">Welcome, Patient!</div>
+			<div id="irxhtb">Your Account Info:</div>
 			<div id="it3pb3" class="row">
 				<div id="idnvug" class="cell">
-					<form class="form">
-						<div class="form-group">
-							<label class="label">Medical Institution's Name</label><input
-								placeholder="Type here the name of the institution where you want to book the appointment"
-								name="App_Inst_Name" required class="input" />
+					<div class="row" id="ixi7zw">
+						<div class="cell" id="ihr3hi">
+							<div id="i40f1j">Username</div>
+							<div id="ih4qsk">
+								<?php
+	define('DB_SERVER', '127.0.0.1');
+	define('DB_USERNAME', 'root');
+	define('DB_PASSWORD', '');
+	define('DB_NAME', 'DoctorDB');
+	// Create connection
+	$con=mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+	// Check connection
+	if (mysqli_connect_errno($con))
+	{
+		echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	}
+	$result = mysqli_query($con, "SELECT * FROM access");
+	echo "<table border='1'>
+	<tr>
+	<th>Acc_MedStaff_SIN</th>
+	<th>Acc_Record_ID</th>
+	</tr>";
+	while($row = mysqli_fetch_array($result))
+	{
+		echo "<tr>";
+		echo "<td>" . $row['Acc_MedStaff_SIN'] . "</td>";
+		echo "<td>" . $row['Acc_Record_ID'] . "</td>";
+		echo "</tr>";
+	}
+	echo "</table>";
+	mysqli_close($con);
+?>
+
+							</div>
 						</div>
-						<div class="form-group">
-							<label class="label">Your SIN</label><input
-								placeholder="Type here your SIN" name="App_Patient_SIN" required
-								class="input" />
+						<div class="cell" id="i1gd7u">
+							<div id="imjtui">SIN</div>
+							<div id="i2jaql">
+								<span>Insert here your custom code</span>
+							</div>
 						</div>
-						<div class="form-group">
-							<label class="label">Your Doctor's SIN</label><input type="text"
-								placeholder="Type here the SIN of the doctor you want to book the appointment with"
-								name="App_MedStaff_SIN" class="input" />
+						<div class="cell" id="ihhl3g">
+							<div id="i81z15">Health Card #</div>
+							<div id="inoj8b">
+								<span>Insert here your custom code</span>
+							</div>
 						</div>
-						<div class="form-group">
-							<label class="label">Reason for the appointment?</label>
-							<textarea placeholder="Type the reason for your appointment"
-								name="App_AppointmentType" class="textarea"></textarea>
+						<div class="cell">
+							<div id="idh0tj">Password</div>
+							<div>
+								<span>Insert here your custom code</span>
+							</div>
 						</div>
-						<div class="form-group">
-							<label class="label">Date of the appointment</label><input
-								type="text"
-								placeholder="Type here the date you want for your appointment (Format: YYYY-MM-DD)"
-								name="App_Date" class="input" />
+						<div class="cell">
+							<div id="iy5scz">Last name</div>
+							<div>
+								<span>Insert here your custom code</span>
+							</div>
 						</div>
-						<div class="form-group">
-							<label class="label">Start time of the appointment</label><input
-								type="text"
-								placeholder="Type here the start time you want for your appointment (Format: HH:MM, 24 hour clock)"
-								name="App_Start_Time" class="input" />
+						<div class="cell" id="iiuqhh">
+							<div id="iin38l">First Name</div>
+							<div>
+								<span>Insert here your custom code</span>
+							</div>
 						</div>
-						<div class="form-group">
-							<label class="label">End time of the appointment</label><input
-								type="text"
-								placeholder="Type here the end time you want for your appointment (Format: HH:MM, 24 hour clock)"
-								name="App_End_Time" class="input" />
+						<div class="cell">
+							<div id="ijpvsl">is Admin?</div>
+							<div>
+								<span>Insert here your custom code</span>
+							</div>
 						</div>
-						<div class="form-group"></div>
-						<div class="form-group">
-							<button type="submit" class="button">Send</button>
+						<div class="cell">
+							<div id="in60sh">City</div>
+							<div>
+								<span>Insert here your custom code</span>
+							</div>
 						</div>
-					</form>
+						<div class="cell">
+							<div id="izrryl">Street</div>
+							<div>
+								<span>Insert here your custom code</span>
+							</div>
+						</div>
+						<div class="cell">
+							<div id="iysvp3">Province</div>
+							<div>
+								<span>Insert here your custom code</span>
+							</div>
+						</div>
+						<div class="cell">
+							<div id="ia8rpu">Insurance Provider</div>
+							<div>
+								<span>Insert here your custom code</span>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</header>
 </body>
-</html>
+<html>
