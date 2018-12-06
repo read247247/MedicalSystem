@@ -1,13 +1,14 @@
 <?php
+    //echo "Start";
     // Initialize the session
-    session_start();
-    
+    //session_start();
+    //echo "after session_start()";
     // Check if the user is already logged in, if yes then redirect him to welcome page
-    if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+    //if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
         //header("location: welcome.php");
-        exit;
-    }
-    
+        //exit;
+    //}
+    //echo "After isset loggedin check";
     // Include config file
     require_once "dataBase_connect.php";
     
@@ -15,9 +16,10 @@
     $username = $password = "";
     $username_err = $password_err = "";
     
+    //echo "Testing before POST if statement";
     // Processing form data when form is submitted
     if($_SERVER["REQUEST_METHOD"] == "POST"){
-        
+        //echo "Testing in POST if statement";
         // Check if username is empty
         if(empty(trim($_POST["username"]))){
             $username_err = "Please enter username.";
@@ -56,12 +58,12 @@
                         if(mysqli_stmt_fetch($stmt)){
                             
                                 // Password is correct, so start a new session
-                                session_start();
+                                //session_start();
                                 
                                 // Store data in session variables
-                                $_SESSION["loggedin"] = true;
-                                $_SESSION["id"] = $id;
-                                $_SESSION["username"] = $username;
+                                //$_SESSION["loggedin"] = true;
+                                //$_SESSION["id"] = $id;
+                                //$_SESSION["username"] = $username;
                                 
                                 // Redirect user to welcome page
                                 header("location: test.html");
