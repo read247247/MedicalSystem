@@ -88,7 +88,7 @@
 			</div>
             <div class = "row">
                 <form action = "book_appointment.php", method = "post">
-                    <input type = "hidden", name = "SubmitCheck", value = "" />
+<input type = "hidden", name = "sin", value =  <?php echo "\""; echo $row['patient_SIN']; echo "\""; ?> />
                     <button type = "submit">
                         Book Appointment
                 </button>
