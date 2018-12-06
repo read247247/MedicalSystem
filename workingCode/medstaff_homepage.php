@@ -12,6 +12,9 @@
 	
 	$sql4 = "SELECT surg_Type_of_Surgery FROM SURGEONAREAS WHERE surg_MedStaff_SIN = '".$row['MedStaff_SIN']."' ";
 	$result4 = mysqli_query($link, $sql4);
+	
+	$sql5 = "SELECT wp_Inst_name FROM WORKPLACEMENTS WHERE wp_MedStaff_SIN = '".$row['MedStaff_SIN']."' ";
+	$result5 = mysqli_query($link, $sql5);
     
     mysqli_close($link);
 ?>
@@ -110,12 +113,31 @@
                                 ?>
 							</div>
 						</div>
+						
+						<div class="cell" id="igr3hi">
+							<div id="i41f1j"><b><u>Work Locations</u></b></div>
+                            <div id="ih5qsk">
+                                <?php 
+									
+									$row5 = mysqli_fetch_assoc($result5);
+									
+									if($row5 == null){
+										echo "<i>Terminated</i>";
+									}
+									else{
+										echo $row5['wp_Inst_name'];
+									}
+									
+								?>
+                            </div>
+                        </div>
+						
 					</div>
 				</div>
 			</div>
             <div class = "row">
                 <form action = "access_precords.php", method = "post">
-                    <input type = "hidden", name = "SubmitCheck", value = "" />
+                    <input type = "hidden", name = "Records", value = "" />
                     <button type = "submit">
                         Search Patient Records
                 </button>
