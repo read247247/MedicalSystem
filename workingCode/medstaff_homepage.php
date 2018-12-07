@@ -13,7 +13,7 @@
 	$sql4 = "SELECT surg_Type_of_Surgery FROM SURGEONAREAS WHERE surg_MedStaff_SIN = '".$row['MedStaff_SIN']."' ";
 	$result4 = mysqli_query($link, $sql4);
 	
-	$sql5 = "SELECT wp_Inst_name FROM WORKPLACEMENTS WHERE wp_MedStaff_SIN = '".$row['MedStaff_SIN']."' ";
+	$sql5 = "SELECT wp_Inst_name, wp_Type FROM WORKPLACEMENTS WHERE wp_MedStaff_SIN = '".$row['MedStaff_SIN']."' ";
 	$result5 = mysqli_query($link, $sql5);
     
     mysqli_close($link);
@@ -66,20 +66,24 @@
                                 <?php echo $row['MedStaff_Lname'];  ?>
 							</div>
 						</div>
-						<div class="cell">
-							<div id="ia8rpu"><b><u>Insurance Provider</b></u></div>
+						<!--<div class="cell">
+							<div id="ia8rpu"><b><u>Area of Specialty</b></u></div>
 							<div>
                                 <?php echo $row['MedStaff_isSpecialist'];  ?>
 							</div>
-						</div>				
+						</div>		-->
 						<div class="cell">
 							<div id="ia8rpv"><b><u>Qualifications</b></u></div>
 							<div>
 								<?php
+                                    if($row2 == null){
+                                        echo "None\n";
+                                    } else{
 										//if the doctor has more than one qualification, then print them all
 										while($row2 = mysqli_fetch_assoc($result2)){
 											echo $row2['msq_Qualification']."\n";
 										}
+                                    }
                                 ?>
 							</div>
 						</div>
@@ -89,9 +93,13 @@
 							<div>
 								<?php
 										//if the doctor has more than one qualification, then print them all
+                                    if($row3 == null){
+                                        echo "None\n";
+                                    } else{
 										while($row3 = mysqli_fetch_assoc($result3)){
 											echo $row3['sa_Area_of_Expertice']."\n";
 										}
+                                    }
                                 ?>
 							</div>
 						</div>
@@ -115,7 +123,7 @@
 						</div>
 						
 						<div class="cell" id="igr3hi">
-							<div id="i41f1j"><b><u>Work Locations</u></b></div>
+							<div id="i41f1j"><b><u>Work Location</u></b></div>
                             <div id="ih5qsk">
                                 <?php 
 									
@@ -125,13 +133,15 @@
 										echo "<i>Terminated</i>";
 									}
 									else{
-										echo $row5['wp_Inst_name'];
+                                        echo "<form action = \"inst_details_page.php\", method = \"post\" >";
+                                        echo "<input type = \"hidden\" name = \"inst_name\", value =\" "; echo $row5['wp_Inst_name'];   echo "\" />";
+                                        echo "<button type = \"submit\">";
+										echo $row5['wp_Inst_name']; echo " - "; echo $row5['wp_Type'];
+                                        echo "</button>";
 									}
-									
 								?>
                             </div>
                         </div>
-						
 					</div>
 				</div>
 			</div>
