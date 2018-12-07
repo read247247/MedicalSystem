@@ -137,7 +137,7 @@
                                         echo "<input type = \"hidden\" name = \"inst_name\", value =\" "; echo $row5['wp_Inst_name'];   echo "\" />";
                                         echo "<button type = \"submit\">";
 										echo $row5['wp_Inst_name']; echo " - "; echo $row5['wp_Type'];
-                                        echo "</button>";
+                                        echo "</button> </form>";
 									}
 								?>
                             </div>
@@ -147,7 +147,7 @@
 			</div>
             <div class = "row">
                 <form action = "access_precords.php", method = "post">
-                    <input type = "hidden", name = "Records", value = "" />
+                    <input type = "hidden", name = "sin", value = <?php echo "\"".$row['MedStaff_SIN']."\""; ?> />
                     <button type = "submit">
                         Search Patient Records
                 </button>
