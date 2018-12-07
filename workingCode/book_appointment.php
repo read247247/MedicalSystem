@@ -95,6 +95,11 @@ name="App_Patient_SIN" value = <?php echo "\"";echo $_POST['sin'];echo "\"";?> r
 							<button type="submit" class="button">Send</button>
 						</div>
 					</form>
+<form action = "patient_homepage.php", method = "post" >
+<button type = "submit">
+Back
+</button>
+</form>
 				</div>
 			</div>
 		</div>

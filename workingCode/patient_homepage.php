@@ -93,6 +93,12 @@
                         Book Appointment
                 </button>
                 </form>
+<form action = "NewAppDisplay.php", method = "post" >
+<input type = "hidden", name = "sin", value =  <?php echo "\""; echo $row['patient_SIN']; echo "\""; ?> />
+<button type = "submit">
+Appointments
+</button>
+</form>
                 <form action = "index.php", method = "post" >
 <button type = "submit">
 Logout

@@ -1,7 +1,7 @@
 <?php
 include_once "dataBase_connect.php";
 $input = $_POST['sin'];
-// echo $input;
+ echo $input;
 $result = mysqli_query($link, "SELECT * FROM appointment WHERE App_Patient_SIN = '" . $input . "'");
 
 $row = mysqli_fetch_array($result);
@@ -78,6 +78,11 @@ mysqli_close($link);
 					</div>
 				</div>
 			</div>
+<form action = "patient_homepage.php", method = "post" >
+<button type = "submit">
+Back
+</button>
+</form>
 		</div>
 	</header>
 </body>

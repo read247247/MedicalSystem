@@ -13,7 +13,7 @@
 		//looks for institution
 		$result = mysqli_query($link, "SELECT mi_Inst_Name FROM MEDICALINSTITUTION");
 		$i = -1;
-		while($row = mysqli_fetch_assoc($result);){
+		while($row = mysqli_fetch_assoc($result)){
 			
 			if($i == $_POST['inst_name']){
 				break 1;
