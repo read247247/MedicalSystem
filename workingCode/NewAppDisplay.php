@@ -56,6 +56,7 @@ mysqli_close($link);
 			}
 			echo "</table>";
 			?>
+
 			</div>
 		</div>
 	</header>
