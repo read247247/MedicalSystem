@@ -30,7 +30,7 @@
 
             if(mysqli_num_rows($result) == 1){
 					
-                header("location: medstaff_homepage.php?username=".$username);
+                header("location: medstaff_homepage.php?username=".$username");
             }
             else{
               $err_message = 'Incorrect username or password';

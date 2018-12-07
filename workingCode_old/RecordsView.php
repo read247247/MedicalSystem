@@ -1,7 +1,7 @@
 <?php
 include_once "dataBase_connect.php";
 $input = $_POST['sin'];
-$result = mysqli_query($link, "SELECT mhitem_Diagnosis, mhitem_Recommended_Treatment, mhitem_Notes FROM ACCESS AS A, MEDICALHISTORYITEM AS M WHERE A.Acc_Record_ID = M.mhitem_Record_ID AND A.Acc_MedStaff_SIN = '".$input."'");
+$result = mysqli_query($link, "SELECT * FROM record WHERE rec_Patient_SIN = '" . $input . "'");
 mysqli_close($link);
 ?>
 
@@ -28,17 +28,17 @@ $MedSympt_result =mysqli_query($link, "SELECT * FROM record, medicalhistoryitem,
 				<?php 
 			echo "<table border='1'>
 <tr>
-<th>mhitem_Diagnosis</th>
-<th>mhitem_Recommended_Treatment</th>
-<th>mhitem_Notes</th>
+<th>Record ID</th>
+<th>Patient SIN</th>
+<th>Record Date</th>
 </tr>";
 			
 			while($row = mysqli_fetch_array($result))
 			{
 			    echo "<tr>";
-			    echo "<td>" . $row['mhitem_Diagnosis'] . "</td>";
-			    echo "<td>" . $row['mhitem_Recommended_Treatment'] . "</td>";
-			    echo "<td>" . $row['mhitem_Notes'] . "</td>";
+			    echo "<td>" . $row['rec_Record_ID'] . "</td>";
+			    echo "<td>" . $row['rec_Patient_SIN'] . "</td>";
+			    echo "<td>" . $row['rec_Date'] . "</td>";
 			    echo "</tr>";
 			}
 			echo "</table>";

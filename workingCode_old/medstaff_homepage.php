@@ -112,15 +112,15 @@
 							<div id="iin87l"><b><u>Surgery experience</b></u></div>
 							<div>
                                 <?php
-                                    $row4 = mysqli_fetch_assoc($result4);
+										$row4 = mysqli_fetch_assoc($result4);
 										if($row4 == null){
 											echo "None\n";
 										}
 										else{
-                                            
-											//while($row4 = mysqli_fetch_assoc($result4)){
+											
+											while($row4){
 												echo $row4['surg_Type_of_Surgery']."\n";
-											//}
+											}
 										}
 										
                                 ?>
@@ -138,22 +138,22 @@
 										echo "<i>Terminated</i>";
 									}
 									else{
-                                        echo "<form action = \"MedInstView.php\", method = \"post\" >";
-                                        echo "<input type = \"hidden\" name = \"medinstname\", value =\" "; echo $row5['wp_Inst_name'];   echo "\" />";
-                                        echo "<input type = \"hidden\", name = \"username\", value = "; echo "'".$username."' />";
+                                        echo "<form action = \"inst_details_page.php\", method = \"post\" >";
+                                        echo "<input type = \"hidden\" name = \"inst_name\", value =\" "; echo $row5['wp_Inst_name'];   echo "\" />";
+                                        <?php echo "<input type = "hidden", name = \"username\", value = "; echo "'".$username."'" ?> />
                                         echo "<button type = \"submit\">";
 										echo $row5['wp_Inst_name']; echo " - "; echo $row5['wp_Type'];
                                         echo "</button>";
 									}
-								?></form>
+								?>
                             </div>
                         </div>
 					</div>
 				</div>
 			</div>
             <div class = "row">
-                <form action = "RecordsView.php", method = "post">
-                    <input type = "hidden", name = "sin", value = <?php echo "'". $row['MedStaff_SIN']."'" ?> />
+                <form action = "access_precords.php", method = "post">
+                    <input type = "hidden", name = "username", value = <?php echo "'".$username."'" ?> />
                     <button type = "submit">
                         Search Patient Records
                 </button>

@@ -1,9 +1,15 @@
 <?php
 	
 	require_once "dataBase_connect.php";
-    $sin = $_POST['sin'];
+    $username = $_POST['username'];
+    echo $username;
+    
+    $sql = "SELECT MedStaff_SIN from MEDICALSTAFF WHERE MedStaff_username = '".$username."'";
+    
+    $result = mysqli_query($link, $sql);
+    $row = mysqli_fetch_assoc($result);
 
-    $sql = "SELECT mhitem_Diagnosis, mhitem_Recommended_Treatment, mhitem_Notes FROM ACCESS AS A, MEDICALHISTORYITEM AS M WHERE A.Acc_Record_ID = M.mhitem_Record_ID AND A.Acc_MedStaff_SIN = ".$sin.";";
+    $sql = "SELECT mhitem_Diagnosis, mhitem_Recommended_Treatment, mhitem_Notes FROM ACCESS AS A, MEDICALHISTORYITEM AS M WHERE A.Acc_Record_ID = M.mhitem_Record_ID AND A.Acc_MedStaff_SIN = ".$row['MedStaff_SIN'].";";
 	
 	$result = mysqli_query($link, $sql);
 	
