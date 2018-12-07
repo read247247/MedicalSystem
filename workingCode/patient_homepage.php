@@ -1,9 +1,11 @@
 <?php
+    $username = $_GET['username'];
     include_once "dataBase_connect.php";
-    $result = mysqli_query($link, "SELECT * FROM patients");
+    $result = mysqli_query($link, "SELECT * FROM patients WHERE patient_username='".$username."'");
     
     $row = mysqli_fetch_array($result);
     mysqli_close($link);
+    
 ?>
 
 <!doctype html>

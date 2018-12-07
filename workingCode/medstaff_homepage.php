@@ -1,7 +1,8 @@
 <?php
+    $username = $_GET['username'];
     require_once "dataBase_connect.php";
     
-    $result = mysqli_query($link, "SELECT * FROM MEDICALSTAFF");
+    $result = mysqli_query($link, "SELECT * FROM MEDICALSTAFF WHERE MedStaff_username='".$username."'");
     $row = mysqli_fetch_array($result);
     
     $sql2 = "SELECT msq_Qualification FROM MEDSTAFFQUALIFICATIONS WHERE msq_MedStaff_SIN = '".$row['MedStaff_SIN']."' ";
