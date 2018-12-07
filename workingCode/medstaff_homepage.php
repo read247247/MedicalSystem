@@ -77,8 +77,14 @@
 							<div>
 								<?php
 								
-									while($row2 = mysqli_fetch_assoc($result2)){
+									$row2 = mysqli_fetch_assoc($result2);
+									if($row2 == null){
+										echo "None\n";
+									}
+									else{
+										while($row2 = mysqli_fetch_assoc($result2)){
 											echo $row2['msq_Qualification']."\n";
+										}
 									}
 									
                                 ?>
