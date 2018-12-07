@@ -93,6 +93,12 @@
                         Book Appointment
                 </button>
                 </form>
+                <form action = "index.php", method = "post" >
+<button type = "submit">
+Logout
+</button>
+</form>
+
             </div>
 		</div>
 	</header>

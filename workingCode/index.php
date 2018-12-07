@@ -19,6 +19,10 @@
       </div>
       <div class="row" id="it3pb3">
         <div class="cell" id="idnvug">
+<?php
+if( isset($_GET['error']) ){
+    echo "<h3><b><u><font color=\"red\">Incorrect Username or Password</font></b></u></h3>";
+}?>
           <form class="form" action = "php_result.php" method = "post">
             <div class="form-group">
               <label class="label">
