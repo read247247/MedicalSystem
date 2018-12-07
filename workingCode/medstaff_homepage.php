@@ -113,9 +113,9 @@
 										}
 										else{
 											
-											while($row4){
+											//while($row4){
 												echo $row4['surg_Type_of_Surgery']."\n";
-											}
+											//}
 										}
 										
                                 ?>
