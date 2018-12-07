@@ -73,7 +73,7 @@ mysqli_close($link);
 			echo "</table>";
 			?>
 			</div>
-			<form action = "patient_homepage.php", method = "post" >
+			<form account = "patient_homepage.php?username= "<?php "'".$POST['username']."'"?> >
 			<input type = "hidden", name = "sin", value =  $input />
 <button type = "submit">
 Back
