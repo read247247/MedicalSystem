@@ -140,6 +140,7 @@
 									else{
                                         echo "<form action = \"inst_details_page.php\", method = \"post\" >";
                                         echo "<input type = \"hidden\" name = \"inst_name\", value =\" "; echo $row5['wp_Inst_name'];   echo "\" />";
+                                        <?php echo "<input type = "hidden", name = \"username\", value = "; echo "'".$username."'" ?> />
                                         echo "<button type = \"submit\">";
 										echo $row5['wp_Inst_name']; echo " - "; echo $row5['wp_Type'];
                                         echo "</button>";
@@ -152,7 +153,7 @@
 			</div>
             <div class = "row">
                 <form action = "access_precords.php", method = "post">
-                    <input type = "hidden", name = "Records", value = "" />
+                    <input type = "hidden", name = "username", value = <?php echo "'".$username."'" ?> />
                     <button type = "submit">
                         Search Patient Records
                 </button>

@@ -91,12 +91,14 @@
             <div class = "row">
                 <form action = "book_appointment.php", method = "post">
 <input type = "hidden", name = "sin", value =  <?php echo "\""; echo $row['patient_SIN']; echo "\""; ?> />
+<input type = "hidden", name = "username", value = <?php echo "'".$username."'" ?> />
                     <button type = "submit">
                         Book Appointment
                 </button>
                 </form>
 <form action = "NewAppDisplay.php", method = "post" >
 <input type = "hidden", name = "sin", value =  <?php echo "\""; echo $row['patient_SIN']; echo "\""; ?> />
+<input type = "hidden", name = "username", value = <?php echo "'".$username."'" ?> />
 <button type = "submit">
 Appointments
 </button>
