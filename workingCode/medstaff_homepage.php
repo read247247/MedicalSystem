@@ -76,14 +76,17 @@
 							<div id="ia8rpv"><b><u>Qualifications</b></u></div>
 							<div>
 								<?php
-                                    if($row2 == null){
-                                        echo "None\n";
-                                    } else{
-										//if the doctor has more than one qualification, then print them all
+								
+									$row2 = mysqli_fetch_assoc($result2);
+									if($row2 == null){
+										echo "None\n";
+									}
+									else{
 										while($row2 = mysqli_fetch_assoc($result2)){
 											echo $row2['msq_Qualification']."\n";
 										}
-                                    }
+									}
+									
                                 ?>
 							</div>
 						</div>
@@ -92,6 +95,7 @@
 							<div id="ia8rpv"><b><u>Area of Expertise</b></u></div>
 							<div>
 								<?php
+									$row3 = mysqli_fetch_assoc($result3);
 										//if the doctor has more than one qualification, then print them all
                                     if($row3 == null){
                                         echo "None\n";
@@ -113,9 +117,9 @@
 										}
 										else{
 											
-											//while($row4){
+											while($row4){
 												echo $row4['surg_Type_of_Surgery']."\n";
-											//}
+											}
 										}
 										
                                 ?>
@@ -137,7 +141,7 @@
                                         echo "<input type = \"hidden\" name = \"inst_name\", value =\" "; echo $row5['wp_Inst_name'];   echo "\" />";
                                         echo "<button type = \"submit\">";
 										echo $row5['wp_Inst_name']; echo " - "; echo $row5['wp_Type'];
-                                        echo "</button> </form>";
+                                        echo "</button>";
 									}
 								?>
                             </div>
@@ -147,7 +151,7 @@
 			</div>
             <div class = "row">
                 <form action = "access_precords.php", method = "post">
-                    <input type = "hidden", name = "sin", value = <?php echo "\"".$row['MedStaff_SIN']."\""; ?> />
+                    <input type = "hidden", name = "Records", value = "" />
                     <button type = "submit">
                         Search Patient Records
                 </button>
