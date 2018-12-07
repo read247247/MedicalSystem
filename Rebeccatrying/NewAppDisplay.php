@@ -73,6 +73,12 @@ mysqli_close($link);
 			echo "</table>";
 			?>
 			</div>
+			<form action = "patient_homepage.php", method = "post" >
+			<input type = "hidden", name = "sin", value =  $input />
+<button type = "submit">
+Back
+</button>
+</form>
 		</div>
 	</header>
 </body>
