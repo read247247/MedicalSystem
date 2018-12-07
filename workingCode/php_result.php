@@ -17,6 +17,10 @@
 
         if(mysqli_num_rows($result) == 1){
             $pName = mysqli_fetch_assoc($result);
+            
+            echo "<form action = \"patient_homepage.php\", method = \"post\">
+					<input type = \"hidden\", name = \"username\", value = \"".$username."\"/>";
+            
             header("location: patient_homepage.php");
         } else{   //searches medstaff table
 
@@ -28,6 +32,9 @@
             }
 
             if(mysqli_num_rows($result) == 1){
+				echo "<form action = \"medstaff_homepage.php\", method = \"post\">
+					<input type = \"hidden\", name = \"username\", value = \"".$username."\"/>";
+					
                 header("location: medstaff_homepage.php");
             }
             else{
